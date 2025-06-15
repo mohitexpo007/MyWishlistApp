@@ -20,15 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import eu.tutorials.mywishlistapp.data.DummyWish
 import eu.tutorials.mywishlistapp.data.Wish
 
 @Composable
-fun HomeView(){
+fun HomeView(navController: NavController,viewModel: WishViewModel){
     Scaffold(
-        topBar = {AppBarView(title="Wishlist")},
+        topBar = {AppBarView(title="Wishlist",navController=navController)},
         floatingActionButton = {
-            FloatingActionButton(modifier = Modifier.padding(24.dp), contentColor = Color.White , backgroundColor = Color.Black, onClick = { /*TODO*/ }) {
+            FloatingActionButton(modifier = Modifier.padding(24.dp), contentColor = Color.White , backgroundColor = Color.Black, onClick = { navController.navigate(Screen.AddScreen.route) }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
             }
         }

@@ -13,14 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun AppBarView(title: String,
-               onBackNavClicked:()->Unit={}){
+               onBackNavClicked:()->Unit={}, navController: NavController){
     val navigationIcon: (@Composable () -> Unit)? = {
         if(!title.contains("Wishlist")) {
 
-            IconButton(onClick = { onBackNavClicked() }) {
+            IconButton(onClick = { navController.navigate(Screen.HomeScreen.route) }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     tint = Color.White,
