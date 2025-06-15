@@ -29,10 +29,11 @@ fun AppBarView(title: String,
 
             }
         }
+        else{
+            null
+        }
     }
-    else{
-        null
-    }
+
 
     TopAppBar(title = {
             Text(text = title,
